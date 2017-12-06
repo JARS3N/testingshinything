@@ -1,6 +1,10 @@
 a_server<-function(){
+require(shiny)
+require(ggplot2)
+require(ggthemes)
+lot_choices<-nms()
   shinyServer(function(input, output,session) {
-  lot_choices<-nms()
+  
     updateSelectInput(session,'Lot',choices=lot_choices)
 
     observeEvent(c(input$Lot,input$Variable),{
